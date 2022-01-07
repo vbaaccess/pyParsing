@@ -19,3 +19,11 @@ Analyzing and extracting data from content
          2. What is a candle? https://www.kaiko.com/collections/ohlcv
          3. open_time and end_time are given in seconds 
         
+3) pyHotShot.py
+    Function that takes a hot shot from the selected page and returns all keywords that are contained in the product name.
+    Example of use:
+    >>> check_hotshot(keywords={'owoce', 'warzywa'})
+    (HotShot(promotion_name='ASUS TUF GAMING Z590-PLUS\xa0(Socket 1200)', promotion_total_count=100), set())
+    >>> check_hotshot(keywords={'nokia'})
+    (HotShot(promotion_name='Telefon NoKia 3310', promotion_total_count=100), {'nokia'})
+    
