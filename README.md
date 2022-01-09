@@ -27,3 +27,14 @@ Analyzing and extracting data from content
     >>> check_hotshot(keywords={'nokia'})
     (HotShot(promotion_name='Telefon NoKia 3310', promotion_total_count=100), {'nokia'})
     
+4) pyRecipes.py
+    Function that downloads links to recipes with a given keyword from the recipe page (www kwestiasmaku com).
+    Example of use:
+    >>> get_recepie_links("placki")
+    {'https://www.kwestiasmaku.com/przepis/placki-kukurydziane',
+     'https://www.kwestiasmaku.com/przepis/placki-twarogowe',
+     'https://www.kwestiasmaku.com/przepis/placki-z-batatow',
+     'https://www.kwestiasmaku.com/przepis/placki-z-ciecierzycy',
+     'https://www.kwestiasmaku.com/przepis/placki-z-dyni',
+     'https://www.kwestiasmaku.com/przepis/placki-z-kalafiora',
+     'https://www.kwestiasmaku.com/przepis/placki-ziemniaczane'}
