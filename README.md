@@ -1,5 +1,21 @@
-# pyParsing
-Analyzing and extracting data from content
+### Analyzing and extracting data from content
+
+
+| Lp  | Example (file)        | Descryption                                       |
+|-----|-----------------------|---------------------------------------------------|
+| 1   | _pyWeather.py_          | Collect wether data for a earth point                |
+| 2   | _pyBinance.py_ | Get candlestick histories for some cryptocurrencies |
+| 3   | _pyHotShot.py_    | Tracking promotions in the computer store                               |
+| 4   | _pyRecipes.py_           | Collecting some recipes                      |
+| 5   | _pyIT_TrendAnalysis.py_    | Tracking technological trends in the IT industry |
+| 6   | _pyScrapingRscbFile.py_           | Download of simple data files for further analysis (from rcsb.org) |
+| 7   | _pyMovies.py_            | Collect top of movies |
+|     |                       |                                                   |
+
+
+**More details**:
+
+---
 
 1) pyWeather.py
     Function that collects the weather for a point with a given latitude and longitude.
@@ -39,7 +55,7 @@ Analyzing and extracting data from content
      'https://www.kwestiasmaku.com/przepis/placki-z-kalafiora',
      'https://www.kwestiasmaku.com/przepis/placki-ziemniaczane'}
    
-5) pyScrapPython.py
+5) pyIT_TrendAnalysis.py
    UNDER CONSTRUCTION - upload pages nfj to bufor
 
 6) pyScrapingRscbFile.py
