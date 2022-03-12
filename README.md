@@ -38,3 +38,14 @@ Analyzing and extracting data from content
      'https://www.kwestiasmaku.com/przepis/placki-z-dyni',
      'https://www.kwestiasmaku.com/przepis/placki-z-kalafiora',
      'https://www.kwestiasmaku.com/przepis/placki-ziemniaczane'}
+   
+5) pyScrapPython.py
+   UNDER CONSTRUCTION - upload pages nfj to bufor
+
+6) pyScrapingRscbFile.py
+   Print www content from rcsb.org to analis some data file
+   UNDER CONSTRUCTION - parse content and get interesting information
+   
+7) pyMovies.py
+   Print www content from imdb.com top 250 movies
+   UNDER CONSTRUCTION - parse content and get interesting information
