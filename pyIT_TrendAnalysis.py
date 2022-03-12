@@ -25,8 +25,29 @@ else:
     print("Odnaleziono zapisany plik lokalny:")
     print(path)
 
-# podglad pliku
-print("Podglad plik lokalny:")
+# przetwarzanie pliku
+from bs4 import BeautifulSoup
+
+print("Pobranie danych z plik do dalszej analizy (for BeautifulSoup ):")
 print(60*"-")
 with open(path, 'r') as objFile:
-    print(objFile.readlines())
+    out = objFile.read()
+    soup = BeautifulSoup(out, 'html.parser')
+
+print("Przetwarzanie plik lokalny:")
+div = soup.select('div[class*="text-center mt-5 ng-star-inserted"]')
+print(div[0].find_all("a"))
+
+tag_list = list(div[0].find_all("a"))
+# href_list = soup.select('div[class*="page-link"]') # tagi z hrrr, tylko wg konkretnie nazwanej klasy
+
+for tag in tag_list:
+    print(tag.string, type(tag.string))
+
+print(len(tag_list))
+url_count = int(tag_list[-2].string)
+
+
+for urlLp in range(1,url_count+1):
+    url = url_target + "?page=" + str(urlLp)
+    print(urlLp, ")", url)
