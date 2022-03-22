@@ -1,5 +1,15 @@
 import configure
 from helper import download_url
+from dataclasses import dataclass
+
+
+@dataclass
+class BasicInformation:
+    title: str
+    description: str
+    occupationalCategory: str
+    datePosted: str
+
 
 url_main = "https://nofluffjobs.com"
 url_target = url_main + "/pl/praca-it/python"
