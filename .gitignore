@@ -1,5 +1,5 @@
 # pyParsing project
-download/*
+download/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
