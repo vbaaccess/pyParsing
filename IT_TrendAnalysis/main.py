@@ -98,11 +98,18 @@ l = [j for j in l if "remote" in j]
 
 print("ilosc ofert", len(l))
 
+list_of_jobs = []
+for jLp, url in enumerate(l):
+    path = download_url(url)
+    print(jLp+1, ")", url, "=>" , path)
+    list_of_jobs.append(path)
+
+print("\nAnaliza ofert...")
 
 import json
 
-# for jLp, page in enumerate(list_job):
-for jLp, page in enumerate(l):
+
+for jLp, page in enumerate(list_of_jobs):
     print(jLp+1, ")", page)
     # print(jLp + 1, ")", page(re.compile("junior")))
     with open(page, 'r', encoding="utf-8") as objFile:
