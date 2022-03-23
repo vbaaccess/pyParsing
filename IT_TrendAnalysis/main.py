@@ -99,3 +99,17 @@ l = [j for j in l if "remote" in j]
 print("ilosc ofert", len(l))
 
 
+import json
+
+# for jLp, page in enumerate(list_job):
+for jLp, page in enumerate(l):
+    print(jLp+1, ")", page)
+    # print(jLp + 1, ")", page(re.compile("junior")))
+    with open(page, 'r', encoding="utf-8") as objFile:
+        out = objFile.read()
+        soup = BeautifulSoup(out, 'html.parser')
+
+    s = soup.find("script", type='application/ld+json')
+    js = json.loads(s.string)
+    # print(json.dumps(js, indent=10, sort_keys=True))
+    print(json.dumps(js['@graph'][2], indent=10, sort_keys=True))
