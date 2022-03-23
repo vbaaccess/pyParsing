@@ -108,15 +108,35 @@ print("\nAnaliza ofert...")
 
 import json
 
+tag_start = '<script id="serverApp-state" type="application/json">'
+tag_end = "</script>"
 
-for jLp, page in enumerate(list_of_jobs):
+t = []
+t.append(list_of_jobs[0])
+for jLp, page in enumerate(t):
+# for jLp, page in enumerate(list_of_jobs):
     print(jLp+1, ")", page)
     # print(jLp + 1, ")", page(re.compile("junior")))
     with open(page, 'r', encoding="utf-8") as objFile:
         out = objFile.read()
         soup = BeautifulSoup(out, 'html.parser')
 
+    # JSON 1
     s = soup.find("script", type='application/ld+json')
     js = json.loads(s.string)
     # print(json.dumps(js, indent=10, sort_keys=True))
     print(json.dumps(js['@graph'][2], indent=10, sort_keys=True))
+
+    # JSON 2
+    s = str(soup.contents).split(tag_start)[1].split(tag_end)[0].replace("&q;", '"')
+    js = json.loads(s)
+    # print(json.dumps(js['POSTING'], indent=10, sort_keys=True))
+
+    print("\nSzczegoly oferty:")
+    print(json.dumps(js['POSTING']['details'], indent=10, sort_keys=True))
+
+    print("\nWymagania obowiazkowe:")
+    print(json.dumps(js['POSTING']['requirements']['musts'], indent=10, sort_keys=True))
+
+    print("\nMile widziane:")
+    print(json.dumps(js['POSTING']['requirements']['nices'], indent=10, sort_keys=True))
