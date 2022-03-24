@@ -1,14 +1,8 @@
+from datetime import datetime
+
 import configure
 from helper import download_url
 from dataclasses import dataclass
-
-
-@dataclass
-class BasicInformation:
-    title: str
-    description: str
-    occupationalCategory: str
-    datePosted: str
 
 
 url_main = "https://nofluffjobs.com"
@@ -108,6 +102,14 @@ print("\nAnaliza ofert...")
 
 import json
 
+@dataclass
+class BasicInformation:
+    datePosted: datetime
+    title: str
+    description: str
+    occupationalCategory: str
+    datePosted: str
+
 tag_start = '<script id="serverApp-state" type="application/json">'
 tag_end = "</script>"
 
@@ -130,13 +132,19 @@ for jLp, page in enumerate(t):
     # JSON 2
     s = str(soup.contents).split(tag_start)[1].split(tag_end)[0].replace("&q;", '"')
     js = json.loads(s)
-    # print(json.dumps(js['POSTING'], indent=10, sort_keys=True))
+    print(json.dumps(js['POSTING'], indent=10, sort_keys=True))
+
+    # get data
 
     print("\nSzczegoly oferty:")
-    print(json.dumps(js['POSTING']['details'], indent=10, sort_keys=True))
+    print(json.dumps(js['POSTING']['details']['description'], indent=10, sort_keys=True))
 
     print("\nWymagania obowiazkowe:")
     print(json.dumps(js['POSTING']['requirements']['musts'], indent=10, sort_keys=True))
 
     print("\nMile widziane:")
     print(json.dumps(js['POSTING']['requirements']['nices'], indent=10, sort_keys=True))
+
+    print("\nData Utworzenia:")
+    print(json.dumps(js['POSTING']['details']['description'], indent=10, sort_keys=True))
+

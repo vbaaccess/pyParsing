@@ -27,7 +27,7 @@ def download_url(url_target: str):
     if not os.path.isfile(full_path + filename):
         print("... brak pliku lokalnego, pobieram plik...")
         # STEP 1
-        time.sleep(random.randint(1, 3))
+        time.sleep(random.randint(5, 10))
         http = urllib3.PoolManager()
         with http.request('GET', url_target, preload_content=False) as r, open(full_path + filename, 'wb') as out_file:
             shutil.copyfileobj(r, out_file)
