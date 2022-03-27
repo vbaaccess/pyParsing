@@ -35,10 +35,10 @@ url_count = int(tag_list[-2].string)
 # print("penultimate = >", url_count, type(url_count))
 
 list_of_pages = []
-for urlLp in range(1,url_count+1):
+for urlLp in range(1, url_count+1):
     url = url_target + "?page=" + str(urlLp)
     path = download_url(url)
-    print(urlLp, ")", url, "=>" , path)
+    print(urlLp, ")", url, "=>", path)
     list_of_pages.append(path)
 
 for path in list_of_pages:
@@ -93,9 +93,11 @@ l = [j for j in l if "remote" in j]
 print("ilosc ofert", len(l))
 
 list_of_jobs = []
+#sDate = f"{datetime.datetime.now():%Y_}"
+sDate = "2022_"
 for jLp, url in enumerate(l):
-    path = download_url(url)
-    print(jLp+1, ")", url, "=>" , path)
+    path = download_url(url, sDate)
+    print(jLp+1, ")", url, "=>", path)
     list_of_jobs.append(path)
 
 print("\nAnaliza ofert...")

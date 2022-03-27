@@ -7,14 +7,15 @@ import datetime
 import time
 import random
 
-sData = f"{datetime.datetime.now():%Y%m%d_}"
 
+def download_url(url_target: str, filename_prefix: str = ""):
+    if len(filename_prefix) == 0:
+        filename_prefix = f"{datetime.datetime.now():%Y%m%d_}"
 
-def download_url(url_target: str):
     filename = ntpath.basename(url_target)
     filename = filename.replace("?", "_")
     filename = filename.replace("=", "_")
-    filename = sData + filename + ".txt"
+    filename = filename_prefix + filename + ".txt"
 
     full_path = os.getcwd() + os.path.sep + 'download' + os.path.sep
 
