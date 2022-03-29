@@ -43,35 +43,11 @@ for urlLp in range(1, url_count+1):
 
 for path in list_of_pages:
     print("path =>", path)
-    # with open(path, 'r') as objFile:
-    #     out = objFile.read()
-    #     soup = BeautifulSoup(out, 'html.parser')
-    #
-    # print("Przetwarzanie podstrony zapisanej lokalnie:", path)
-    # divs = soup.select('div[class*="list-container ng-star-inserted"]')
-    # #print(divs)
-    # for div in divs:
-    #     print(div)
-
-# test one page
-# print(40*"-")
-# print("test", list_of_pages[0])
-# pattern = "/pl/job/"
-# patternLp = 0
-# with open(list_of_pages[0], 'r', encoding="utf-8") as objFile:
-#     out = objFile.read()
-#     soup = BeautifulSoup(out, 'html.parser')
-#
-#     tags_a = soup.findAll("a", href=re.compile(pattern))
-#     for tag_a in tags_a:
-#         patternLp += 1
-#         print(patternLp, ") href =>", tag_a["href"])
 
 href_pattern = "/pl/job/"
 hrefLp = 0
 list_job = []
 for pageLp, path_to_page in enumerate(list_of_pages):
-    # print(pageLp, ") ", path_to_page)
 
     with open(path_to_page, 'r', encoding="utf-8") as objFile:
         out = objFile.read()
@@ -83,7 +59,6 @@ for pageLp, path_to_page in enumerate(list_of_pages):
             hrefLp += 1
             h = url_main + tag_a["href"]
             list_job.append(h)
-            # print(hrefLp, ") href =>", h)
 
 l = list_job
 l = [j for j in l if "junior" in j]
@@ -150,3 +125,16 @@ for jLp, page in enumerate(t):
     print("\nData Utworzenia:")
     print(json.dumps(js['POSTING']['details']['description'], indent=10, sort_keys=True))
 
+    # JSON 1
+    # JobPosting -> baseSalary -> value -> value
+    # datePosted
+    # description
+    # jobLocation -> address -> addressLocality (remote)
+    # search: python
+    # search: Junior
+    # search:  convertedSalary; range, currency
+
+    # search: requirements -> muss...
+    # search: nices -> muss...
+
+    # JSON 2
